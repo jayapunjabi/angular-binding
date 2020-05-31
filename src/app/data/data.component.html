@@ -1,33 +1,35 @@
 <div class="wrapper">
-<div class="form-area">    
-<div class="detail-area">
-    <label for ="fname">First Name </label><br/>
-    <input type="text" [(ngModel)] ="first" #firstName> 
-    <br> 
-    <label for ="lname">Last Name </label><br> 
-    <input  ngModel pattern="[a-zA-Z ]*" 
-                    [(ngModel)]="last" #lastName > 
-                    <br>             
-    <label for ="mno">Mobile No </label>  <br>              
-    <input  ngModel pattern="[0-9]*" 
-                    [(ngModel)]="mobile" #mobileNo> 
-<br/>
-    <label for ="address">Address </label> <br>  
-        <textarea ng-model="myTextarea" 
-                    [(ngModel)]="address" #addRess></textarea> <br/>
+    <div class="form-area" >    
+    <div class="detail-area">
+            <label for ="fname">First Name </label><br/>
+            <input type="text"  required
+            pattern="[a-zA-Z ]*" [(ngModel)]="form.name" #firstName= "ngModel"> 
+        <br> 
+            <label for ="lname">Last Name </label><br> 
+            <input  [(ngModel)]="form.lastName" #lastName > 
+        <br>             
+            <label for ="mno">Mobile No </label>  <br>              
+            <input [(ngModel)]="form.contactNumber" #mobileNo> 
+        <br/>
+            <label for ="address">Address </label> <br>  
+            <textarea name="address" id="address" cols="10" rows="5" [(ngModel)]="form.address"></textarea> <br/>
 
-<br/>
-      <button type="button" [disabled]="d"
-           (click) = "update(firstName.value,lastName.value,mobileNo.value,addRess.value)" 
-      class="btn btn-primary">Show value!</button>
-</div>
-<div class = "msg-area">
-    <label >
-    First Name : {{fname}} <br> 
-    Last Name : {{lname}}   <br>
-    Mobile No : {{mno}}<br>
-    Address : {{add}} <br>
-    </label>
+            <label for ="table">table input</label>
+            <input type="tel" [(ngModel)]="form.tableIterator">
+            <button  class="btn btn-primary"type="button" (click)="SaveForm()">
+                Show value!
+            </button>
+    </div>
+    </div>
+    <div class = "msg-area" id="display" *ngIf="display ">
+        <label >
+            First Name : {{ form.name }}  <br> 
+            Last Name : {{ form.lastName }}   <br>
+            Mobile No : {{ form.contactNumber }}<br> 
+            Address : {{ form.address }} <br>
+            table input:   <app-table [value]="form.tableIterator"  *ngIf="!!form.tableIterator"></app-table>
+        </label>
+        <button type="button" (click)="refreshPage()">refresh</button>
     </div>
 </div>
-</div>
+

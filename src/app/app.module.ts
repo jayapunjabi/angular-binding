@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataComponent } from './data/data.component';
 import {FormsModule} from '@angular/forms';
+import { TableComponent } from './table/table.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataComponent
+    DataComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

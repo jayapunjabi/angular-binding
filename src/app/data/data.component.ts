@@ -7,29 +7,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DataComponent implements OnInit {
 
-first='';
-last='';
-mobile='';
-address='';
-  fname='';
-  lname='';
-  mno='';
-  add='';
-  d:boolean=false;
-  @Input() pattern: string | RegExp
+  form = {
+    name: '',
+    lastName: '',
+    contactNumber: '',
+    address: '',
+    tableIterator: ''
+  };
+  display: boolean;
 
- 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-update(obj1,obj2,obj3,obj4)
-{
-  this.fname= obj1;
-  this.lname=obj2;
-  this.mno=obj3;
-  this.add=obj4;
-  this.d=!this.d;
-}
+
+  SaveForm(){
+    console.log(this.form);
+    this.display = true;
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
 
 }
