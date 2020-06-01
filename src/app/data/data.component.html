@@ -1,11 +1,9 @@
 <div class="wrapper">
-    <div >
-    <form name ="myForm" class="form-area" id="input" *ngIf="!display" >    
+    <div class="form-area" id="input" *ngIf="!display" >    
     <div class="detail-area"  >
             <label for ="fname">First Name </label><br/>
-            <input name="firstName" type="text"  required
-            pattern="[a-zA-Z ]*" [(ngModel)]="form.name" #firstName= "ngModel"  > 
-     
+            <input type="text"  required
+            pattern="[a-zA-Z ]*" [(ngModel)]="form.name" #firstName= "ngModel"> 
         <br> 
             <label for ="lname">Last Name </label><br> 
             <input type="text" required
@@ -25,7 +23,6 @@
                 Show value!
             </button>
     </div>
-    </form>
     </div>
     <div class = "msg-area" id="display" *ngIf="display ">
         <label >
