@@ -1,18 +1,23 @@
 <div class="wrapper">
-    <div class="form-area" >    
-    <div class="detail-area">
+    <div >
+    <form name ="myForm" class="form-area" id="input" *ngIf="!display" >    
+    <div class="detail-area"  >
             <label for ="fname">First Name </label><br/>
-            <input type="text"  required
-            pattern="[a-zA-Z ]*" [(ngModel)]="form.name" #firstName= "ngModel"> 
+            <input name="firstName" type="text"  required
+            pattern="[a-zA-Z ]*" [(ngModel)]="form.name" #firstName= "ngModel"  > 
+     
         <br> 
             <label for ="lname">Last Name </label><br> 
-            <input  [(ngModel)]="form.lastName" #lastName > 
+            <input type="text" required
+            pattern="[a-zA-Z ]*"  [(ngModel)]="form.lastName" #lastName > 
         <br>             
-            <label for ="mno">Mobile No </label>  <br>              
+            <label for ="mno"  pattern="[0-9]*"
+            minlength="10"
+            maxlength="10" >Mobile No </label>  <br>              
             <input [(ngModel)]="form.contactNumber" #mobileNo> 
         <br/>
             <label for ="address">Address </label> <br>  
-            <textarea name="address" id="address" cols="10" rows="5" [(ngModel)]="form.address"></textarea> <br/>
+            <textarea name="address" required id="address" cols="10" rows="5" [(ngModel)]="form.address"></textarea> <br/>
 
             <label for ="table">table input</label>
             <input type="tel" [(ngModel)]="form.tableIterator">
@@ -20,6 +25,7 @@
                 Show value!
             </button>
     </div>
+    </form>
     </div>
     <div class = "msg-area" id="display" *ngIf="display ">
         <label >
